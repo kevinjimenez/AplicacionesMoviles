@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"PON ALGO BRO",Toast.LENGTH_LONG).show();
         }else{
             Intent intents = new Intent(getApplicationContext(),ventanaItems.class);
-            intents.putExtra("idUser","Usuario: "+user.getText().toString());
+            intents.putExtra("idUser",user.getText().toString());
             startActivity(intents);
         }
 
