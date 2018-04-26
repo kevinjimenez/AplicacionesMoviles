@@ -17,6 +17,6 @@ public class ventanaDatosItem extends AppCompatActivity {
         ((TextView) findViewById(R.id.Talla)).setText(String.valueOf(detallesZapatos.getTalla()));
         ((TextView) findViewById(R.id.Precio)).setText(String.valueOf(detallesZapatos.getPrecio()));
         ((TextView) findViewById(R.id.Pais)).setText(detallesZapatos.getPais());
-        
+
     }
 }
