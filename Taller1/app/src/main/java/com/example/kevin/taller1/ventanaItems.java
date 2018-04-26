@@ -15,14 +15,15 @@ public class ventanaItems extends AppCompatActivity {
     ListView miLista;
     ArrayAdapter<shoes> adapter;
     shoes misZapatos[];
-    TextView nombreDeUsuario;
+    String user,pass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ventana_items);
-        nombreDeUsuario = (TextView) findViewById(R.id.Usuario);
-        nombreDeUsuario.setText(getIntent().getExtras().getString("idUser"));
+        user = getIntent().getExtras().getString("idUser");
+        pass = getIntent().getExtras().getString("idPass");
         miLista = (ListView) findViewById(R.id.miLista);
         cargarZapatos();
         adapter = new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,misZapatos);
@@ -32,7 +33,8 @@ public class ventanaItems extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(),ventanaDatosItem.class);
                 intent.putExtra("id",misZapatos[position]);
-                intent.putExtra("usuario",nombreDeUsuario.getText().toString());
+                intent.putExtra("usuario",user);
+                intent.putExtra("pass",pass);
                 startActivity(intent);
             }
         });

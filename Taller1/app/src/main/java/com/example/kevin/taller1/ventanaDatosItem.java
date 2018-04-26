@@ -11,13 +11,14 @@ import Producto.shoes;
 
 public class ventanaDatosItem extends AppCompatActivity {
 
-    String Usuario;
+    String Usuario,Password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ventana_datos_item);
         shoes detallesZapatos = (shoes) getIntent().getExtras().getSerializable("id");
         Usuario = getIntent().getExtras().getString("usuario");
+        Password = getIntent().getExtras().getString("pass");
         Button opcionDeCompra = (Button) findViewById(R.id.btnComprar);
         ((TextView) findViewById(R.id.Nombre)).setText(detallesZapatos.getNombre());
         ((TextView) findViewById(R.id.Marca)).setText(detallesZapatos.getMarca());
@@ -27,10 +28,10 @@ public class ventanaDatosItem extends AppCompatActivity {
         opcionDeCompra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((Usuario.equalsIgnoreCase("Kevin"))){
+                if ((Usuario.equalsIgnoreCase("Kevin"))&&(Password.equalsIgnoreCase("Kevin"))){
                     Toast.makeText(getApplicationContext(),"COMPRASTE EL ARTICULO",Toast.LENGTH_LONG).show();
                 }
-                if(Usuario.isEmpty()){
+                if((Usuario.isEmpty()&&(Password.isEmpty()))){
                     Toast.makeText(getApplicationContext(),"Ingresa bro ,no esta logeado",Toast.LENGTH_LONG).show();
                 }
             }

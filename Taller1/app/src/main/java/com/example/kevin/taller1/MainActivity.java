@@ -20,17 +20,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openItems(View view){
-        if(user.getText().toString().equalsIgnoreCase("Kevin")){
+        if(user.getText().toString().equalsIgnoreCase("Kevin")&&(pass.getText().toString().equalsIgnoreCase("kevin"))){
             //Toast.makeText(getApplicationContext(),"PON ALGO BRO",Toast.LENGTH_LONG).show();
             Intent intents = new Intent(getApplicationContext(),ventanaItems.class);
             intents.putExtra("idUser",user.getText().toString());
+            intents.putExtra("idPass",pass.getText().toString());
             startActivity(intents);
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"Usuario o Contraseña Incorrecta",Toast.LENGTH_LONG).show();
         }
     }
     public void openInvitado(View view){
-        if((user.getText().toString().isEmpty())){
+        if((user.getText().toString().isEmpty())&&(pass.getText().toString().isEmpty())){
             Intent intents = new Intent(getApplicationContext(),ventanaInvitado.class);
             intents.putExtra("idUser",user.getText().toString());
+            intents.putExtra("idPass",pass.getText().toString());
             startActivity(intents);
         }
 

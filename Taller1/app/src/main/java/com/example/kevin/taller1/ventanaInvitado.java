@@ -17,13 +17,14 @@ public class ventanaInvitado extends AppCompatActivity {
     ListView miListaInvitado;
     ArrayAdapter<shoes> adapter;
     shoes misZapatos [];
-    String invitado;
+    String invitado,passInvitado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ventana_invitado);
         miListaInvitado = (ListView) findViewById(R.id.listaInvitado);
         invitado = getIntent().getExtras().getString("idUser");
+        passInvitado = getIntent().getExtras().getString("idPass");
         cargarZapatos();
         adapter = new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,misZapatos);
         miListaInvitado.setAdapter(adapter);
@@ -33,6 +34,7 @@ public class ventanaInvitado extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),ventanaDatosItem.class);
                 intent.putExtra("id",misZapatos[position]);
                 intent.putExtra("usuario",invitado);
+                intent.putExtra("pass",passInvitado);
                 startActivity(intent);
             }
         });
