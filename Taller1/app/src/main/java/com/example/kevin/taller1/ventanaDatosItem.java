@@ -29,7 +29,8 @@ public class ventanaDatosItem extends AppCompatActivity {
             public void onClick(View v) {
                 if ((Usuario.equalsIgnoreCase("Kevin"))){
                     Toast.makeText(getApplicationContext(),"COMPRASTE EL ARTICULO",Toast.LENGTH_LONG).show();
-                }else{
+                }
+                if(Usuario.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Ingresa bro no, esta logeado",Toast.LENGTH_LONG).show();
                 }
             }

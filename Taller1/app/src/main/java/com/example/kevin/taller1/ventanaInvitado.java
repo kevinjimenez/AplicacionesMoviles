@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import Producto.shoes;
 
 
@@ -15,11 +17,13 @@ public class ventanaInvitado extends AppCompatActivity {
     ListView miListaInvitado;
     ArrayAdapter<shoes> adapter;
     shoes misZapatos [];
+    String invitado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ventana_invitado);
         miListaInvitado = (ListView) findViewById(R.id.listaInvitado);
+        invitado = getIntent().getExtras().getString("idUser");
         cargarZapatos();
         adapter = new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,misZapatos);
         miListaInvitado.setAdapter(adapter);
@@ -28,6 +32,7 @@ public class ventanaInvitado extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(),ventanaDatosItem.class);
                 intent.putExtra("id",misZapatos[position]);
+                intent.putExtra("usuario",invitado);
                 startActivity(intent);
             }
         });

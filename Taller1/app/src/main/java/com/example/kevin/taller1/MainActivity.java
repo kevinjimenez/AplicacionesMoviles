@@ -20,19 +20,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openItems(View view){
-        if(user.getText().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(),"PON ALGO BRO",Toast.LENGTH_LONG).show();
-        }else{
+        if(user.getText().toString().equalsIgnoreCase("Kevin")){
+            //Toast.makeText(getApplicationContext(),"PON ALGO BRO",Toast.LENGTH_LONG).show();
             Intent intents = new Intent(getApplicationContext(),ventanaItems.class);
             intents.putExtra("idUser",user.getText().toString());
             startActivity(intents);
         }
-
-
-
     }
     public void openInvitado(View view){
-        Intent intents = new Intent(getApplicationContext(),ventanaInvitado.class);
-        startActivity(intents);
+        if((user.getText().toString().isEmpty())){
+            Intent intents = new Intent(getApplicationContext(),ventanaInvitado.class);
+            intents.putExtra("idUser",user.getText().toString());
+            startActivity(intents);
+        }
+
     }
 }
