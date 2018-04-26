@@ -31,7 +31,7 @@ public class ventanaDatosItem extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"COMPRASTE EL ARTICULO",Toast.LENGTH_LONG).show();
                 }
                 if(Usuario.isEmpty()){
-                    Toast.makeText(getApplicationContext(),"Ingresa bro no, esta logeado",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Ingresa bro ,no esta logeado",Toast.LENGTH_LONG).show();
                 }
             }
         });
