@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ventanaItems" />
-        <activity android:name=".ventanaInvitado"></activity>
+        <activity android:name=".ventanaInvitado" />
+        <activity android:name=".ventanaDatosItem"></activity>
     </application>
 
 </manifest>

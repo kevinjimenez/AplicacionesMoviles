@@ -1,7 +1,10 @@
 package com.example.kevin.taller1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,14 +25,17 @@ public class ventanaItems extends AppCompatActivity {
         cargarZapatos();
         adapter = new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,misZapatos);
         miLista.setAdapter(adapter);
+        miLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(),ventanaDatosItem.class);
+                intent.putExtra("id",misZapatos[position]);
+                startActivity(intent);
+            }
+        });
     }
 
     public void cargarZapatos(){
-        misZapatos = new shoes[] { new shoes("kkk","etnies","vietnan", 105,0),
-                new shoes("kkk1","etnies","vietnan", 105,0),
-                new shoes("kkk2","etnies","vietnan", 105,0),
-                new shoes("kkk3","etnies","vietnan", 105,0),
-                new shoes("kkk4","etnies","vietnan", 105,0),
-        };
+        misZapatos = new shoes().cargarZapatos();
     }
 }
