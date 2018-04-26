@@ -37,7 +37,6 @@ public class ventanaItems extends AppCompatActivity {
             }
         });
     }
-
     public void cargarZapatos(){
         misZapatos = new shoes().cargarZapatos();
     }
