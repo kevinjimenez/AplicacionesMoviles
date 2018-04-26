@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,9 +20,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openItems(View view){
-        Intent intents = new Intent(getApplicationContext(),ventanaItems.class);
-        intents.putExtra("idUser","Usuario: "+user.getText().toString());
-        startActivity(intents);
+        if(user.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(),"PON ALGO BRO",Toast.LENGTH_LONG).show();
+        }else{
+            Intent intents = new Intent(getApplicationContext(),ventanaItems.class);
+            intents.putExtra("idUser","Usuario: "+user.getText().toString());
+            startActivity(intents);
+        }
+
+
+
     }
     public void openInvitado(View view){
         Intent intents = new Intent(getApplicationContext(),ventanaInvitado.class);
