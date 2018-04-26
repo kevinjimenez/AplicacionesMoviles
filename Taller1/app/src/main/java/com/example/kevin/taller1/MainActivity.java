@@ -14,10 +14,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        user = (EditText)  findViewById(R.id.inputUser);
+        pass = (EditText)  findViewById(R.id.inputPass);
     }
 
     public void openItems(View view){
         Intent intents = new Intent(getApplicationContext(),ventanaItems.class);
+        intents.putExtra("idUser","Usuario: "+user.getText().toString());
         startActivity(intents);
     }
     public void openInvitado(View view){
