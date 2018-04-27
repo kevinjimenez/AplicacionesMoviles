@@ -92,39 +92,17 @@ public class shoes implements Serializable{
                 new shoes("Nyjah","DC","vietman", 7,98),
                 new shoes("Navy","etnies","vietman", 6,93),
                 new shoes("Run","adidas","china", 11,80),
+                new shoes("Converse","converser","Tailandia", 5,70),
         };
         return misZapatos;
     }
 
     public String [] nombresDeZapatos(){
-        misNombres = new String[] {
-                new shoes("Marana","etnies","vietnan", 10,100).getNombre(),
-                new shoes("Predator","nike","china", 8,120).getNombre(),
-                new shoes("skate","adidas","vietnan", 5,95).getNombre(),
-                new shoes("Nyjah","DC","vietman", 7,98).getNombre(),
-                new shoes("Navy","etnies","vietman", 6,93).getNombre(),
-                new shoes("Run","adidas","china", 11,80).getNombre(),
-                new shoes("Marana","etnies","vietnan", 10,100).getNombre(),
-                new shoes("Predator","nike","china", 8,120).getNombre(),
-                new shoes("skate","adidas","vietnan", 5,95).getNombre(),
-                new shoes("Nyjah","DC","vietman", 7,98).getNombre(),
-                new shoes("Navy","etnies","vietman", 6,93).getNombre(),
-                new shoes("Run","adidas","china", 11,80).getNombre(),
-                new shoes("Marana","etnies","vietnan", 10,100).getNombre(),
-                new shoes("Predator","nike","china", 8,120).getNombre(),
-                new shoes("skate","adidas","vietnan", 5,95).getNombre(),
-                new shoes("Nyjah","DC","vietman", 7,98).getNombre(),
-                new shoes("Navy","etnies","vietman", 6,93).getNombre(),
-                new shoes("Run","adidas","china", 11,80).getNombre(),
-                new shoes("Marana","etnies","vietnan", 10,100).getNombre(),
-                new shoes("Predator","nike","china", 8,120).getNombre(),
-                new shoes("skate","adidas","vietnan", 5,95).getNombre(),
-                new shoes("Nyjah","DC","vietman", 7,98).getNombre(),
-                new shoes("Navy","etnies","vietman", 6,93).getNombre(),
-                new shoes("Run","adidas","china", 11,80).getNombre(),
-        };
+        misNombres = new String[cargarZapatos().length];
+        for (int i=0;i<misNombres.length;i++){
+                misNombres[i]=cargarZapatos()[i].getNombre();
+        }
         return misNombres;
     }
-
 }
 
