@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class shoes implements Serializable{
 
     String nombre,marca,pais;
+    String misNombres[];
     Integer talla,precio;
     shoes misZapatos [];
 
@@ -60,22 +61,33 @@ public class shoes implements Serializable{
     }
 
 
-
     @Override
     public String toString() {
-        return this.nombre +", $"+this.precio ;
+        return this.nombre + " ,$"+this.precio;
     }
 
     public shoes [] cargarZapatos(){
-        misZapatos = new shoes[] { new shoes("kkk","etnies","vietnan", 105,0),
+        misZapatos = new shoes[] {
+                new shoes("kkk","etnies","vietnan", 105,0),
                 new shoes("kkk1","etnies","vietnan", 105,0),
                 new shoes("kkk2","etnies","vietnan", 105,0),
                 new shoes("kkk3","etnies","vietnan", 105,0),
                 new shoes("kkk4","etnies","vietnan", 105,0),
                 new shoes("kkk4","adidas","vietnan", 105,0),
         };
-
         return misZapatos;
+    }
+
+    public String [] nombresDeZapatos(){
+        misNombres = new String[] {
+                new shoes("kkk","etnies","vietnan", 105,0).getNombre(),
+                new shoes("kkk1","etnies","vietnan", 105,0).getNombre(),
+                new shoes("kkk2","etnies","vietnan", 105,0).getNombre(),
+                new shoes("kkk3","etnies","vietnan", 105,0).getNombre(),
+                new shoes("kkk4","etnies","vietnan", 105,0).getNombre(),
+                new shoes("kkk4","adidas","vietnan", 105,0).getNombre(),
+        };
+        return misNombres;
     }
 
 }

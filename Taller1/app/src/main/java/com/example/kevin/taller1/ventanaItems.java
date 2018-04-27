@@ -24,20 +24,22 @@ public class ventanaItems extends AppCompatActivity {
         setContentView(R.layout.activity_ventana_items);
         user = getIntent().getExtras().getString("idUser");
         pass = getIntent().getExtras().getString("idPass");
-        miLista = (ListView) findViewById(R.id.miLista);
-        cargarZapatos();
-        adapter = new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,misZapatos);
-        miLista.setAdapter(adapter);
-        miLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(),ventanaDatosItem.class);
-                intent.putExtra("id",misZapatos[position]);
-                intent.putExtra("usuario",user);
-                intent.putExtra("pass",pass);
-                startActivity(intent);
-            }
-        });
+        if ((user.equalsIgnoreCase("Kevin"))&&(pass.equalsIgnoreCase("Kevin"))) {
+            miLista = (ListView) findViewById(R.id.miLista);
+            cargarZapatos();
+            adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, misZapatos);
+            miLista.setAdapter(adapter);
+            miLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(getApplicationContext(), ventanaDatosItem.class);
+                    intent.putExtra("id", misZapatos[position]);
+                    intent.putExtra("usuario", user);
+                    intent.putExtra("pass", pass);
+                    startActivity(intent);
+                }
+            });
+        }
     }
     public void cargarZapatos(){
         misZapatos = new shoes().cargarZapatos();

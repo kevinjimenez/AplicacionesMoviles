@@ -15,8 +15,9 @@ import Producto.shoes;
 public class ventanaInvitado extends AppCompatActivity {
 
     ListView miListaInvitado;
-    ArrayAdapter<shoes> adapter;
+    ArrayAdapter<String> adapter;
     shoes misZapatos [];
+    String [] nombreDeZapatos;
     String invitado,passInvitado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,21 +26,28 @@ public class ventanaInvitado extends AppCompatActivity {
         miListaInvitado = (ListView) findViewById(R.id.listaInvitado);
         invitado = getIntent().getExtras().getString("idUser");
         passInvitado = getIntent().getExtras().getString("idPass");
+        cargarNombres();
         cargarZapatos();
-        adapter = new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,misZapatos);
-        miListaInvitado.setAdapter(adapter);
-        miListaInvitado.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(),ventanaDatosItem.class);
-                intent.putExtra("id",misZapatos[position]);
-                intent.putExtra("usuario",invitado);
-                intent.putExtra("pass",passInvitado);
-                startActivity(intent);
-            }
-        });
+        if((invitado.isEmpty()&&(passInvitado.isEmpty()))) {
+            adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item,nombreDeZapatos);
+            miListaInvitado.setAdapter(adapter);
+            miListaInvitado.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(getApplicationContext(), ventanaDatosItem.class);
+                    intent.putExtra("id", misZapatos[position]);
+                    intent.putExtra("usuario", invitado);
+                    intent.putExtra("pass", passInvitado);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
+
+    public void cargarNombres(){
+        nombreDeZapatos = new shoes().nombresDeZapatos();
+    }
     public void cargarZapatos(){
         misZapatos = new shoes().cargarZapatos();
     }
