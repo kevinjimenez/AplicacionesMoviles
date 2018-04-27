@@ -3,11 +3,14 @@ package com.example.kevin.taller1;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import Producto.shoes;
 
@@ -34,16 +37,40 @@ public class ventanaInvitado extends AppCompatActivity {
             miListaInvitado.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(getApplicationContext(), ventanaDatosItem.class);
-                    intent.putExtra("id", misZapatos[position]);
-                    intent.putExtra("usuario", invitado);
-                    intent.putExtra("pass", passInvitado);
-                    startActivity(intent);
+                    openPopUp(view,misZapatos[position]);
                 }
             });
         }
     }
 
+    public void openPopUp(final View view, final shoes zapatitos){
+        PopupMenu popUp=new PopupMenu(this,view);
+        popUp.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent;
+                switch (item.getItemId()){
+                    case R.id.Ver:
+                        intent = new Intent(getApplicationContext(), ventanaDatosItem.class);
+                        intent.putExtra("id", zapatitos);
+                        intent.putExtra("usuario", invitado);
+                        intent.putExtra("pass", passInvitado);
+                        startActivity(intent);
+                        return true;
+                    case R.id.Comprar:
+                        intent = new Intent(getApplicationContext(), ventanaDatosItem.class);
+                        intent.putExtra("usuario", invitado);
+                        intent.putExtra("pass", passInvitado);
+                        Toast.makeText(getApplicationContext(),"Lo siento logeate",Toast.LENGTH_LONG).show();
+                        return true;
+                    default:return false;
+                }
+            }
+        });
+        popUp.inflate(R.menu.menuopciones);
+        popUp.show();
+
+    }
 
     public void cargarNombres(){
         nombreDeZapatos = new shoes().nombresDeZapatos();
