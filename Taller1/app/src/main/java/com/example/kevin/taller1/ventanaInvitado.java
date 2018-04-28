@@ -58,9 +58,6 @@ public class ventanaInvitado extends AppCompatActivity {
                         startActivity(intent);
                         return true;
                     case R.id.Comprar:
-                        intent = new Intent(getApplicationContext(), ventanaDatosItem.class);
-                        intent.putExtra("usuario", invitado);
-                        intent.putExtra("pass", passInvitado);
                         Toast.makeText(getApplicationContext(),"Lo siento logeate",Toast.LENGTH_LONG).show();
                         return true;
                     default:return false;

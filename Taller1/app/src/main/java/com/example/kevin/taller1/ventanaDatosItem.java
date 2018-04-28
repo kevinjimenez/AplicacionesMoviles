@@ -20,13 +20,12 @@ public class ventanaDatosItem extends AppCompatActivity {
         Usuario = getIntent().getExtras().getString("usuario");
         Password = getIntent().getExtras().getString("pass");
 
-
         Button opcionDeCompra = (Button) findViewById(R.id.btnComprar);
-        ((TextView) findViewById(R.id.Nombre)).setText(detallesZapatos.getNombre());
-        ((TextView) findViewById(R.id.Marca)).setText(detallesZapatos.getMarca());
-        ((TextView) findViewById(R.id.Talla)).setText(String.valueOf(detallesZapatos.getTalla()));
-        ((TextView) findViewById(R.id.Precio)).setText(String.valueOf(detallesZapatos.getPrecio()));
-        ((TextView) findViewById(R.id.Pais)).setText(detallesZapatos.getPais());
+        ((TextView) findViewById(R.id.Nombre)).setText("Nombre: "+detallesZapatos.getNombre());
+        ((TextView) findViewById(R.id.Marca)).setText("Marca: "+detallesZapatos.getMarca());
+        ((TextView) findViewById(R.id.Talla)).setText("Talla del Zapato: "+String.valueOf(detallesZapatos.getTalla()));
+        ((TextView) findViewById(R.id.Precio)).setText("Precio: $"+String.valueOf(detallesZapatos.getPrecio()));
+        ((TextView) findViewById(R.id.Pais)).setText("Pais de Fabricacion: "+detallesZapatos.getPais());
         opcionDeCompra.setOnClickListener(new View.OnClickListener() {
             @Override
 

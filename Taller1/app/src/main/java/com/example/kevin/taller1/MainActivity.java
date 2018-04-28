@@ -28,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intents);
         }
         else {
-            Toast.makeText(getApplicationContext(),"Usuario o Contraseña Incorrecta",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Usuario o Contraseña Incorrecta, Puedes ingresar con invitado",Toast.LENGTH_LONG).show();
         }
     }
     public void openInvitado(View view){
+        Toast.makeText(getApplicationContext(),"Para ingresa como INVITADO no debes llenar los campos",Toast.LENGTH_LONG).show();
         if((user.getText().toString().isEmpty())&&(pass.getText().toString().isEmpty())){
             Intent intents = new Intent(getApplicationContext(),ventanaInvitado.class);
             intents.putExtra("idUser",user.getText().toString());

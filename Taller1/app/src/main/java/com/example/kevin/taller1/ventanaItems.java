@@ -28,7 +28,7 @@ public class ventanaItems extends AppCompatActivity {
         setContentView(R.layout.activity_ventana_items);
         user = getIntent().getExtras().getString("idUser");
         pass = getIntent().getExtras().getString("idPass");
-        if ((user.equalsIgnoreCase("Kevin"))&&(pass.equalsIgnoreCase("Kevin"))) {
+        //if ((user.equalsIgnoreCase("Kevin"))&&(pass.equalsIgnoreCase("Kevin"))) {
             miLista = (ListView) findViewById(R.id.miLista);
             cargarZapatos();
             adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, misZapatos);
@@ -39,7 +39,7 @@ public class ventanaItems extends AppCompatActivity {
                     openPopUp(view,misZapatos[position]);
                 }
             });
-        }
+        //}
     }
     public void cargarZapatos(){
         misZapatos = new shoes().cargarZapatos();
@@ -60,15 +60,13 @@ public class ventanaItems extends AppCompatActivity {
                         startActivity(intent);
                         return true;
                     case R.id.Comprar:
-                        intent = new Intent(getApplicationContext(), ventanaDatosItem.class);
-                        intent.putExtra("usuario", user);
-                        intent.putExtra("pass", pass);
                         if ((user.equalsIgnoreCase("Kevin"))&&(pass.equalsIgnoreCase("Kevin"))) {
                             Toast.makeText(getApplicationContext(),"Compraste El articulo",Toast.LENGTH_LONG).show();
                         }
                         return true;
                     case  R.id.Modificacion:
-                        return false;
+                        Toast.makeText(getApplicationContext(),"FALTA ESTA OPCION",Toast.LENGTH_LONG).show();
+                        return true;
                         default:return false;
                 }
             }
