@@ -31,7 +31,8 @@ public class ventanaInvitado extends AppCompatActivity {
         passInvitado = getIntent().getExtras().getString("idPass");
         cargarNombres();
         cargarZapatos();
-        if((invitado.isEmpty()&&(passInvitado.isEmpty()))) {
+
+        //if((invitado.isEmpty()&&(passInvitado.isEmpty()))) {
             adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item,nombreDeZapatos);
             miListaInvitado.setAdapter(adapter);
             miListaInvitado.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -40,7 +41,21 @@ public class ventanaInvitado extends AppCompatActivity {
                     openPopUp(view,misZapatos[position]);
                 }
             });
-        }
+        //}
+    }
+
+    public void cargarNombres(){
+        nombreDeZapatos = new shoes().nombresDeZapatos();
+    }
+    public void cargarZapatos(){
+        misZapatos = new shoes().cargarZapatos();
+    }
+    public void intentos(shoes articulo){
+        Intent intent = new Intent(getApplicationContext(), ventanaDatosItem.class);
+        intent.putExtra("id", articulo);
+        intent.putExtra("usuario", invitado);
+        intent.putExtra("pass", passInvitado);
+        startActivity(intent);
     }
 
     public void openPopUp(final View view, final shoes zapatitos){
@@ -48,14 +63,9 @@ public class ventanaInvitado extends AppCompatActivity {
         popUp.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                Intent intent;
                 switch (item.getItemId()){
                     case R.id.Ver:
-                        intent = new Intent(getApplicationContext(), ventanaDatosItem.class);
-                        intent.putExtra("id", zapatitos);
-                        intent.putExtra("usuario", invitado);
-                        intent.putExtra("pass", passInvitado);
-                        startActivity(intent);
+                        intentos(zapatitos);
                         return true;
                     case R.id.Comprar:
                         Toast.makeText(getApplicationContext(),"Lo siento logeate",Toast.LENGTH_LONG).show();
@@ -69,10 +79,5 @@ public class ventanaInvitado extends AppCompatActivity {
 
     }
 
-    public void cargarNombres(){
-        nombreDeZapatos = new shoes().nombresDeZapatos();
-    }
-    public void cargarZapatos(){
-        misZapatos = new shoes().cargarZapatos();
-    }
+
 }

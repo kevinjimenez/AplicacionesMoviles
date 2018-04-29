@@ -44,20 +44,22 @@ public class ventanaItems extends AppCompatActivity {
     public void cargarZapatos(){
         misZapatos = new shoes().cargarZapatos();
     }
+    public void intentos(shoes articulo){
+        Intent intent = new Intent(getApplicationContext(), ventanaDatosItem.class);
+        intent.putExtra("id", articulo);
+        intent.putExtra("usuario", user);
+        intent.putExtra("pass", pass);
+        startActivity(intent);
+    }
 
     public void openPopUp(final View view, final shoes zapatitos){
         PopupMenu popUp=new PopupMenu(this,view);
         popUp.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                Intent intent;
                 switch (item.getItemId()){
                     case R.id.Ver:
-                        intent = new Intent(getApplicationContext(), ventanaDatosItem.class);
-                        intent.putExtra("id", zapatitos);
-                        intent.putExtra("usuario", user);
-                        intent.putExtra("pass", pass);
-                        startActivity(intent);
+                        intentos(zapatitos);
                         return true;
                     case R.id.Comprar:
                         if ((user.equalsIgnoreCase("Kevin"))&&(pass.equalsIgnoreCase("Kevin"))) {
