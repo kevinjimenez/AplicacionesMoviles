@@ -14,20 +14,29 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
+import Control.leerArchivoObjeto;
+import modelo.Persona;
+
+
 public class MainActivity extends AppCompatActivity {
 
+    leerArchivoObjeto oleerarchivo = new leerArchivoObjeto();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
     public void leer(View v){
-        leerArchivoPlano();
+        //leerArchivoPlano();
+        Persona p = oleerarchivo.leerArchivo("p.txt");
+        Toast.makeText(getApplicationContext(),p.toString(),Toast.LENGTH_LONG).show();
     }
 
     public void crearArchivo(View view){
-        escribirArchivoTextoPlano();
+        oleerarchivo.escribirArchivo(new Persona("kevin","jimenez","12345678"),"p.txt");
+        //escribirArchivoTextoPlano();
     }
 
     private void escribirArchivoTextoPlano(){
