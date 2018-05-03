@@ -38,6 +38,6 @@ private String nombre,apellido,cedula;
 
     @Override
     public String toString() {
-        return this.nombre + this.apellido;
+        return this.nombre +" "+ this.apellido;
     }
 }
