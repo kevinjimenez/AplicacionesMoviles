@@ -3,6 +3,7 @@ package com.example.kevin.taller1;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +13,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import Controlador.controlListaShoes;
 import Producto.shoes;
 
 public class ventanaItems extends AppCompatActivity {
@@ -20,6 +22,7 @@ public class ventanaItems extends AppCompatActivity {
     ArrayAdapter<shoes> adapter;
     shoes misZapatos[];
     String user,pass;
+    controlListaShoes miControl=null;
 
 
     @Override
@@ -28,10 +31,13 @@ public class ventanaItems extends AppCompatActivity {
         setContentView(R.layout.activity_ventana_items);
         user = getIntent().getExtras().getString("idUser");
         pass = getIntent().getExtras().getString("idPass");
+        miControl = (controlListaShoes) getIntent().getExtras().getSerializable("miArchivo");
+        miControl.escribirArchivo(new shoes().cargarZapatos(),"miArchivo.txt");
+        misZapatos = miControl.leerArchivo("miArchivo.txt");
         //if ((user.equalsIgnoreCase("Kevin"))&&(pass.equalsIgnoreCase("Kevin"))) {
             miLista = (ListView) findViewById(R.id.miLista);
-            cargarZapatos();
-            adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, misZapatos);
+            //cargarZapatos();
+            adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item,misZapatos);
             miLista.setAdapter(adapter);
             miLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -41,9 +47,9 @@ public class ventanaItems extends AppCompatActivity {
             });
         //}
     }
-    public void cargarZapatos(){
+    /*public void cargarZapatos(){
         misZapatos = new shoes().cargarZapatos();
-    }
+    }*/
     public void intentos(shoes articulo){
         Intent intent = new Intent(getApplicationContext(), ventanaDatosItem.class);
         intent.putExtra("id", articulo);

@@ -61,10 +61,8 @@ public class shoes implements Serializable{
     }
 
 
-    @Override
-    public String toString() {
-        return this.nombre + " ,$"+this.precio;
-    }
+
+
 
     public shoes [] cargarZapatos(){
         misZapatos = new shoes[] {
@@ -103,6 +101,10 @@ public class shoes implements Serializable{
                 misNombres[i]=cargarZapatos()[i].getNombre();
         }
         return misNombres;
+    }
+    @Override
+    public String toString() {
+        return this.nombre + " ,$"+this.precio;
     }
 }
 

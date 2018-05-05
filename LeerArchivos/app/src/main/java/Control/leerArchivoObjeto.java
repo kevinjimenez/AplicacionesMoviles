@@ -38,7 +38,7 @@ public class leerArchivoObjeto {
             FileInputStream fis = new FileInputStream(ruta+nombre);
             ObjectInputStream in = new ObjectInputStream(fis);
             p = (Persona)in.readObject();
-
+            fis.close();
         } catch (FileNotFoundException e) {
             Log.e("error archivo",e.toString());
         } catch (IOException e) {

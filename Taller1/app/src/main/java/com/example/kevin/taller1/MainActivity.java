@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import Controlador.controlListaShoes;
+import Producto.shoes;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText user;
@@ -22,9 +25,11 @@ public class MainActivity extends AppCompatActivity {
     public void openItems(View view){
         if(user.getText().toString().equalsIgnoreCase("Kevin")&&(pass.getText().toString().equalsIgnoreCase("kevin"))){
             //Toast.makeText(getApplicationContext(),"PON ALGO BRO",Toast.LENGTH_LONG).show();
+            //controlLista.escribirArchivo(new shoes().cargarZapatos(),"misZapatos.txt");
             Intent intents = new Intent(getApplicationContext(),ventanaItems.class);
             intents.putExtra("idUser",user.getText().toString());
             intents.putExtra("idPass",pass.getText().toString());
+            intents.putExtra("miArchivo",new controlListaShoes());
             startActivity(intents);
         }
         else {
