@@ -31,10 +31,9 @@ public class ventanaItems extends AppCompatActivity {
         setContentView(R.layout.activity_ventana_items);
         user = getIntent().getExtras().getString("idUser");
         pass = getIntent().getExtras().getString("idPass");
-        miControl = (controlListaShoes) getIntent().getExtras().getSerializable("miArchivo");
+        miControl = new controlListaShoes();
         miControl.escribirArchivo(new shoes().cargarZapatos(),"miArchivo.txt");
         misZapatos = miControl.leerArchivo("miArchivo.txt");
-        //if ((user.equalsIgnoreCase("Kevin"))&&(pass.equalsIgnoreCase("Kevin"))) {
             miLista = (ListView) findViewById(R.id.miLista);
             //cargarZapatos();
             adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item,misZapatos);

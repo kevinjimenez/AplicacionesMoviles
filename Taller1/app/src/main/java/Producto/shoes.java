@@ -95,13 +95,13 @@ public class shoes implements Serializable{
         return misZapatos;
     }
 
-    public String [] nombresDeZapatos(){
+    /*public String [] nombresDeZapatos(){
         misNombres = new String[cargarZapatos().length];
         for (int i=0;i<misNombres.length;i++){
-                misNombres[i]=cargarZapatos()[i].getNombre();
+            misNombres[i]=cargarZapatos()[i].getNombre();
         }
         return misNombres;
-    }
+    }*/
     @Override
     public String toString() {
         return this.nombre + " ,$"+this.precio;

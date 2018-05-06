@@ -14,9 +14,10 @@ import java.io.Serializable;
 
 import Producto.shoes;
 
-public class controlListaShoes implements Serializable{
+public class controlListaShoes{
     private File archivo = Environment.getExternalStorageDirectory();
     private String ruta = archivo.getAbsolutePath()+File.separator;
+
 
     public void escribirArchivo(shoes misZapatos[],String nombreArchivos){
         FileOutputStream fos = null;
@@ -50,5 +51,6 @@ public class controlListaShoes implements Serializable{
         }
         return misListaZapatos;
     }
+
 
 }
