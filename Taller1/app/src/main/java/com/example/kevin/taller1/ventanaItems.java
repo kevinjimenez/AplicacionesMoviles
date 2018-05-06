@@ -32,8 +32,8 @@ public class ventanaItems extends AppCompatActivity {
         user = getIntent().getExtras().getString("idUser");
         pass = getIntent().getExtras().getString("idPass");
         miControl = new controlListaShoes();
-        miControl.escribirArchivo(new shoes().cargarZapatos(),"miArchivo.txt");
-        misZapatos = miControl.leerArchivo("miArchivo.txt");
+        miControl.escribirArchivo(new shoes().cargarZapatos(),"miArchivo.shoes");
+        misZapatos = miControl.leerArchivo("miArchivo.shoes");
             miLista = (ListView) findViewById(R.id.miLista);
             //cargarZapatos();
             adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item,misZapatos);
@@ -57,14 +57,14 @@ public class ventanaItems extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openPopUp(final View view, final shoes zapatitos){
+    public void openPopUp(final View view, final shoes zapatos){
         PopupMenu popUp=new PopupMenu(this,view);
         popUp.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.Ver:
-                        intentos(zapatitos);
+                        intentos(zapatos);
                         return true;
                     case R.id.Comprar:
                         if ((user.equalsIgnoreCase("Kevin"))&&(pass.equalsIgnoreCase("Kevin"))) {

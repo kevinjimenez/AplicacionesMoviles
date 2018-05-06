@@ -31,8 +31,8 @@ public class ventanaInvitado extends AppCompatActivity {
         miListaInvitado = (ListView) findViewById(R.id.listaInvitado);
         invitado = getIntent().getExtras().getString("idUser");
         passInvitado = getIntent().getExtras().getString("idPass");
-        micontrol.escribirArchivo(new shoes().cargarZapatos(),"miArchivoInvitado");
-        misZapatos = (shoes[])micontrol.leerArchivo("miArchivoInvitado");
+        micontrol.escribirArchivo(new shoes().cargarZapatos(),"miArchivoInvitado.shoes");
+        misZapatos = (shoes[])micontrol.leerArchivo("miArchivoInvitado.shoes");
         //if((invitado.isEmpty()&&(passInvitado.isEmpty()))) {
             adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item,cargarNombres());
             miListaInvitado.setAdapter(adapter);
