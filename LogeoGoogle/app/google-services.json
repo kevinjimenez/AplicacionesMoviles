@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "260706507939",
+    "firebase_url": "https://rugged-research-203719.firebaseio.com",
+    "project_id": "rugged-research-203719",
+    "storage_bucket": "rugged-research-203719.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260706507939:android:ceda5dbd06a547b1",
+        "android_client_info": {
+          "package_name": "com.example.kevin.logeogoogle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260706507939-9v24tms1du29ugv6c8r0jfimggored13.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kevin.logeogoogle",
+            "certificate_hash": "8c9482e2dc6bc5d954a8b5d652a8fd4ff36ec563"
+          }
+        },
+        {
+          "client_id": "260706507939-msin11olpsqj860hguavabgnikiqes25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHBjfA6yqk_HeNOkI0hRTl_AnGpZL9G_8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260706507939-msin11olpsqj860hguavabgnikiqes25.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
